@@ -9,7 +9,7 @@ authors = [
     { name = "Ye Zhou", email = "u7993710@anu.edu.au" },
     { name = "Karl Wette", email = "karl.wette@anu.edu.au" },
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "astropy>=5.0",
     "coloredlogs>=15.0",
