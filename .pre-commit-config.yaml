@@ -41,8 +41,3 @@ repos:
     rev: v2.4.1
     hooks:
       - id: mypy
-
-  - repo: https://github.com/assorted-pre-commit-hooks/version-tag
-    rev: v0.1
-    hooks:
-      - id: version-tag
