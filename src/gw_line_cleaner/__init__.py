@@ -12,10 +12,12 @@ arbitrary numbers of detectors (LIGO, Virgo, KAGRA, etc.).
 
 from importlib.metadata import PackageNotFoundError, version
 
+__author__ = "Ye Zhou"
+
 try:
     __version__ = version("gw_line_cleaner")
 except PackageNotFoundError:  # pragma: no cover
-    __version__ = "NOT-INSTALLED"
+    __version__ = "0.0.0.dev0"
 
 # Import main classes and functions for public API
 from .baseline_fit import (

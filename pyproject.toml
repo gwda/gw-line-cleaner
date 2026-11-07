@@ -24,9 +24,6 @@ readme = "README.md"
 license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
     "Operating System :: OS Independent",
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Astronomy",
@@ -46,7 +43,8 @@ Issues = "https://github.com/gwda/gw-line-cleaner/issues"
 gw-line-cleaner = "gw_line_cleaner.cli:cli"
 
 [tool.setuptools_scm]
-# required for version inference
+scm.git.pre_parse = "fail_on_shallow"
+local_scheme = "node-and-timestamp"
 
 [tool.ruff]
 fix = true
@@ -107,12 +105,28 @@ script = """
 python -m pytest ...
 """
 
+[tool.ppqs.scripts.version]
+description = "Print the current package version"
+script = "python -m setuptools_scm"
+
+[tool.ppqs.scripts.tag]
+description = "Tag a release"
+script = [
+    ["git", "status"],
+    ["git", "diff", "--quiet", "--exit-code"],
+    ["ppqs", "lint"],
+    ["ppqs", "build"],
+    ["ppqs", "test"],
+    ["git", "commit", "--allow-empty", "-m", "Version {1}.{2}.{3}"],
+    ["git", "tag", "-a", "-m", "Version {1}.{2}.{3}", "v{1}.{2}.{3}"],
+]
+
 [tool.ppqs.scripts.upload]
 description = "Upload package"
 script = [
-    ["ppqs", "test"],
+    ["ppqs", "lint"],
     ["ppqs", "build"],
-    ["twine", "upload", ["dist", "*"]],
+    ["ppqs", "test"],
     ["git", "push", "origin"],
     ["git", "push", "origin", "--tags"],
 ]
