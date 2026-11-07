@@ -1,6 +1,6 @@
 build>=1.2
 coverage>=7.17.1
-pre-commit>=3.7
+pre-commit>=4.7.0
 pytest-cov>=2.0
 pytest>=6.0
 setuptools-scm>=8
