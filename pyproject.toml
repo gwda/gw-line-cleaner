@@ -22,6 +22,10 @@ dependencies = [
 ]
 readme = "README.md"
 license = "MIT"
+license-files = [
+    'LICENSES/MIT.txt',
+    'LICENSES/CC0-1.0.txt',
+]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
@@ -30,10 +34,6 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Physics",
 ]
 dynamic = ["version"]
-license-files = [
-    'LICENSES/MIT.txt',
-    'LICENSES/CC0-1.0.txt',
-]
 
 [project.urls]
 Homepage = "https://github.com/gwda/gw-line-cleaner"
