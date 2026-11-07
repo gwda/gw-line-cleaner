@@ -4,6 +4,5 @@ pre-commit>=4.7.0
 pytest-cov>=7.1.0
 pytest>=9.2.0
 setuptools-scm>=8
-setuptools>=64.0
 setuptools>=80
 twine>=7.0.0
